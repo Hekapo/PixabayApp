@@ -56,11 +56,6 @@ class NetworkModule {
 
     @Provides
     @Singleton
-    fun provideService(retrofit: Retrofit): SearchService {
-        return retrofit.create(SearchService::class.java)
-    }
+    fun provideService(retrofit: Retrofit): SearchService = retrofit.create(SearchService::class.java)
 
-    @Provides
-    @Singleton
-    fun provideGlide(@ApplicationContext context: Context): RequestManager = Glide.with(context)
 }

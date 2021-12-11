@@ -6,11 +6,38 @@
     android:layout_height="match_parent"
     tools:context=".presentation.fragments.HomeFragment">
 
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/search_toolbar"
+        style="@style/Widget.MaterialComponents.Toolbar.Primary"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        app:layout_constraintTop_toTopOf="parent"
+        app:title="PixabayApp" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/text_in_layout"
+        style="@style/CustomTextInputLayoutStyle"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:focusableInTouchMode="true"
+        android:hint="search"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/search_toolbar">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </com.google.android.material.textfield.TextInputLayout>
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_result"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="20dp"
         app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+        app:layout_constraintTop_toBottomOf="@id/text_in_layout"
         app:spanCount="2"
         tools:listitem="@layout/one_result_item" />
 
